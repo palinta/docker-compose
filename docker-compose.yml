@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    influx:
+        image: influxdb
+        volumes:
+            - influx-data:/data
+
+    grafana:
+        links:
+            - influx:influx
+        image: grafana/grafana
+        ports:
+            - "3000:3000"
+
+volumes:
+    influx-data:
+        driver: local
