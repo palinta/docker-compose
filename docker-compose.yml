@@ -13,6 +13,12 @@ services:
         ports:
             - "3000:3000"
 
+    mosquitto:
+        image: eclipse-mosquitto
+        ports:
+            - "1883:1883"
+            - "9001:9001"
+
 volumes:
     influx-data:
         driver: local
